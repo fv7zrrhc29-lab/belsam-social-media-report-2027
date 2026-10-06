@@ -1,155 +1,248 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تقرير اتجاهات وسائل التواصل الاجتماعي 2027 - مجمع بلسم</title>
+    <title>Social Media Trends in Healthcare 2027</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f6fa;
-            color: #2d3748;
-            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
             padding: 40px 20px;
-            line-height: 1.7;
+            min-height: 100vh;
         }
-        .report-card {
-            max-width: 850px;
-            background: #ffffff;
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border-top: 8px solid #00a3c4;
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #edf2f7;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        .report-header {
+            background: white;
+            padding: 50px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .brand-title {
-            color: #00a3c4;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0;
+        .report-header h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
         }
-        .report-year {
-            background: #e6f7fa;
-            color: #00849e;
-            padding: 6px 16px;
+        .report-header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .year-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.95rem;
+            margin-top: 15px;
         }
-        h2 {
-            color: #0f766e;
-            font-size: 1.35rem;
-            margin-top: 35px;
+        .report-content {
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .platform-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .platform-card:hover {
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+        .platform-card h3 {
+            color: #667eea;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            position: relative;
-            padding-right: 12px;
         }
-        h2::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 4px;
-            height: 20px;
-            width: 4px;
-            background-color: #00a3c4;
-            border-radius: 2px;
-        }
-        p {
-            color: #4a5568;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-        ul {
-            padding-right: 20px;
-            margin-bottom: 25px;
-        }
-        li {
-            margin-bottom: 12px;
-            color: #4a5568;
-        }
-        strong {
-            color: #00849e;
+        .platform-card p {
+            color: #555;
+            line-height: 1.8;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 30px 0;
+            background: white;
         }
-        th, td {
-            padding: 14px 18px;
-            text-align: right;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        th {
-            background-color: #00a3c4;
-            color: #ffffff;
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
             font-weight: 600;
         }
-        tr:hover {
-            background-color: #f7fafc;
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .highlight-row {
-            background-color: #f0fdfa;
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        .best-platforms {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .best-platforms ul {
+            list-style: none;
+            padding: 0;
+        }
+        .best-platforms li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        .best-platforms li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
             font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .recommendation-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .recommendation-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .recommendation-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .report-footer {
+            background: white;
+            padding: 30px 50px;
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-<div class="report-card">
-    <div class="header">
-        <h1 class="brand-title">مجمع بلسم الطبي</h1>
-        <span class="report-year">تقرير اتجاهات المنصات 2027</span>
+<div class="container">
+    <div class="report-header">
+        <h1>Social Media Trends in Healthcare</h1>
+        <p>Strategic Platform Analysis for Healthcare Facilities</p>
+        <span class="year-badge">2027 Report</span>
     </div>
 
-    <p>إن منصة <strong>Instagram</strong> تعد خياراً ممتازاً جداً للوصول إلى الجمهور في المملكة العربية السعودية، حيث تركز على المحتوى السريع والقصير، ويمكن الاستفادة منها بكفاءة عالية في نشر الوعي الصحي واستعراض خدمات عيادات المجمع الطبية.</p>
+    <div class="report-content">
+        
+        <div class="section">
+            <h2>Platform Overview</h2>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <h3>📱 Snapchat</h3>
+                    <p>Snapchat is a good platform to reach people in Saudi Arabia. It uses short and quick content. It can be used for health awareness and to show healthcare services and clinics.</p>
+                </div>
+                <div class="platform-card">
+                    <h3>🎵 TikTok</h3>
+                    <p>TikTok is good for short videos and reaching new people. Healthcare facilities can share health tips, answer questions, and explain their services in a simple way.</p>
+                </div>
+                <div class="platform-card">
+                    <h3>📷 Instagram</h3>
+                    <p>Instagram is good for visual content such as Reels and Stories. It can help build the facility's image and show its services and doctors.</p>
+                </div>
+            </div>
+        </div>
 
-    <h2>الإحصائيات والأرقام المستهدفة</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>المنصة (Platform)</th>
-                <th>حجم الجمهور المستهدف (Best For)</th>
-                <th>الاستخدام الموصى به (Potential)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="highlight-row">
-                <td>إنستغرام (Instagram)</td>
-                <td>18.2 مليون مستخدم</td>
-                <td>الفيديوهات القصيرة والوصول لعملاء جدد</td>
-            </tr>
-            <tr>
-                <td>سناب شات (Snapchat)</td>
-                <td>25.3 مليون مستخدم</td>
-                <td>بناء العلامة التجارية واستعراض الخدمات اليومية</td>
-            </tr>
-            <tr>
-                <td>تيك توك (TikTok)</td>
-                <td>تفاعل محلي يومي عالي</td>
-                <td>محتوى سريع وانتشار واسع</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="section">
+            <h2>Potential Advertising Reach in Saudi Arabia</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Potential Reach</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Snapchat</strong></td>
+                        <td>25.3 million</td>
+                        <td>Local reach and daily engagement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok</strong></td>
+                        <td>High engagement</td>
+                        <td>Short videos and reaching new people</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram</strong></td>
+                        <td>18.2 million</td>
+                        <td>Building the brand and showing services</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <h2>أفكار صناعة المحتوى المقترحة للمجمع</h2>
-    <ul>
-        <li><strong>مقاطع الفيديو القصيرة (Reels):</strong> لتصوير التقنيات والمرافق الطبية الجديدة داخل المجمع.</li>
-        <li><strong>نصائح الأطباء:</strong> تقديم معلومات طبية يومية ونصائح سريعة للمراجعين بصوت أطباء بلسم.</li>
-        <li><strong>الأسئلة الشائعة:</strong> الإجابة على استفسارات المرضى وشرح العلاجات بطرق مبسطة ومباشرة.</li>
-        <li><strong>القصص اليومية (Stories):</strong> لزيادة التفاعل اليومي وبناء علاقة قوية وموثوقة مع أهل جدة.</li>
-    </ul>
+        <div class="section">
+            <h2>Best Platforms for 2027</h2>
+            <div class="best-platforms">
+                <ul>
+                    <li><strong>TikTok:</strong> Reaching new people through short videos.</li>
+                    <li><strong>Snapchat:</strong> Reaching people in Saudi Arabia.</li>
+                    <li><strong>Instagram:</strong> Building the brand and trust.</li>
+                </ul>
+            </div>
+        </div>
 
-    <h2>التوصية الإعلانية (Advertising Recommendation)</h2>
-    <p>ننصح بدمج المنصات الثلاث وتوظيفها معاً بشكل متناغم للاستفادة القصوى من الحملات الإعلانية الموجهة، مما يضمن كسب ثقة الجمهور المحلي وجذب مراجعين جدد لعيادات مجمع بلسم الطبي بشكل مستمر.</p>
+        <div class="section">
+            <h2>Recommendation</h2>
+            <div class="recommendation-box">
+                <h3>Integrated Social Media Strategy</h3>
+                <p><strong>TikTok</strong> to attract people — <strong>Snapchat</strong> for local reach — <strong>Instagram</strong> to build the brand and trust.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="report-footer">
+        <p>This report is designed for healthcare facilities in Saudi Arabia to optimize their social media presence in 2027.</p>
+    </div>
 </div>
 
 </body>
